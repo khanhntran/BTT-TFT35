@@ -159,7 +159,7 @@
  *  TOAST: A Toast notification is displayed for few seconds. No user interaction is needed
  *
  */
-#define ACK_NOTIFICATION_STYLE 1
+#define ACK_NOTIFICATION_STYLE 2
 
 /**
  * Default Touch Mode Color Options
@@ -257,8 +257,8 @@
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS 225
-#define Y_MAX_POS 225
+#define X_MAX_POS 230
+#define Y_MAX_POS 230
 #define Z_MAX_POS 300
 
 // Specify a pause position as { X, Y, Z_raise }
@@ -301,7 +301,7 @@
  *
  * Options:  0: Disabled    1: Enabled
  */
-#define AUTO_SAVE_LOAD_BL_VALUE 1
+#define AUTO_SAVE_LOAD_BL_VALUE 0
 
 /**
  * Enable Bed Leveling options

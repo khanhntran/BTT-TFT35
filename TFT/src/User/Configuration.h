@@ -25,8 +25,8 @@
  *
  * Default value is: 1 for LED_OFF
 */
-#define STARTUP_KNOB_LED_COLOR 0         // LED_OFF
-#define KEEP_KNOB_LED_COLOR_MARLIN_MODE  // Keeps the LED state in Marlin Mode
+#define STARTUP_KNOB_LED_COLOR 0        // LED_OFF
+#define KEEP_KNOB_LED_COLOR_MARLIN_MODE // Keeps the LED state in Marlin Mode
 
 /**
  * Default LCD Brightness and LCD IDLE Brightness
@@ -44,10 +44,10 @@
  *              6: LCD_DIM_300_SECONDS,  7: LCD_DIM_CUSTOM_SECONDS
  *
  */
-#define DEFAULT_LCD_BRIGHTNESS      11  // 11: LCD_100_PERCENT - Brightness value from list
-#define DEFAULT_LCD_IDLE_BRIGHTNESS 3   // 3: LCD_10_PERCENT - Brightness value from list
-#define DEFAULT_LCD_IDLE_TIMER      0   // 0: LCD_DIM_OFF
-#define LCD_DIM_CUSTOM_SECONDS      600 // Custom value in seconds. Will be used if LCD_DIM_CUSTOM_SECONDS is set as idle timer.
+#define DEFAULT_LCD_BRIGHTNESS 11     // 11: LCD_100_PERCENT - Brightness value from list
+#define DEFAULT_LCD_IDLE_BRIGHTNESS 5 // 3: LCD_10_PERCENT - Brightness value from list
+#define DEFAULT_LCD_IDLE_TIMER 4      // 0: LCD_DIM_OFF
+#define LCD_DIM_CUSTOM_SECONDS 600    // Custom value in seconds. Will be used if LCD_DIM_CUSTOM_SECONDS is set as idle timer.
 
 //===========================================================================
 //=========================== Marlin Mode Settings ==========================
@@ -63,24 +63,24 @@
  *         12: DARKBLUE,  13: DARKGREEN,  14: GRAY,   15: DARKGRAY
  */
 #define MARLIN_BKCOLOR 1
-#define MARLIN_FNCOLOR 0
+#define MARLIN_FNCOLOR 5
 
 /**
  * Text displayed at the top of the TFT in Marlin Mode.
  */
-#define MARLIN_BANNER_TEXT "LCD12864 Simulator"
+#define MARLIN_BANNER_TEXT "Ender 5"
 
 /**
  * show banner text at the top of the TFT in Marlin Mode.
  */
-#define MARLIN_SHOW_BANNER  true //to enabled: true | to disabled: false
+#define MARLIN_SHOW_BANNER true //to enabled: true | to disabled: false
 /**
  * Run Marlin Mode in Fullscreen
  *
  * Options:  0: Disabled. RECOMMENDED FOR TFT24
  *           1: Enabled Marlin Fullscreen mode.
  */
-#define DEFAULT_ST7920_FULLSCREEN_MODE 0 // 0: Disabled. RECOMMENDED FOR TFT24
+#define DEFAULT_ST7920_FULLSCREEN_MODE 1 // 0: Disabled. RECOMMENDED FOR TFT24
 
 /**
  * Keep Serial always On (ONLY SUPPORTED ON TFT24 V1.1, TFT35 V3.0, AND TFT28 V3.0)
@@ -91,7 +91,7 @@
  *
  * Options:  0: Disabled    1: Enabled
  */
-#define SERIAL_ALWAYS_ON 0  // Default: 0 (Disabled)
+#define SERIAL_ALWAYS_ON 1 // Default: 0 (Disabled)
 
 //===========================================================================
 //========================== Touch Mode Settings ============================
@@ -105,7 +105,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 115200
+#define BAUDRATE 250000
 
 /**
  * Default Primary Language (for Touch-Mode only)
@@ -136,8 +136,8 @@
  * Note: Test audio output with the G-Code:
  * M300 S<frequency Hz> P<duration ms>
  */
-#define BUZZER_FREQUENCY_DURATION_MS 20 // Default 20
-#define BUZZER_FREQUENCY_HZ 10000       // Default 10000, 20Hz to 60KHz
+#define BUZZER_FREQUENCY_DURATION_MS 0 // Default 20
+#define BUZZER_FREQUENCY_HZ 0          // Default 10000, 20Hz to 60KHz
 #define BUZZER_STOP_LEVEL false
 
 /**
@@ -167,33 +167,57 @@
  *          6: MAGENTA,    7: YELLOW,      8: ORANGE,  9: PURPLE,   10: LIME,  11: BROWN,
  *         12: DARKBLUE,  13: DARKGREEN,  14: GRAY,   15: DARKGRAY
  */
-#define TITLE_BACKGROUND_COLOR     1  // Title background color // 0xD928
-#define BACKGROUND_COLOR           1  // Background color // 0x0A29
-#define FONT_COLOR                 0  // Font foreground color
-#define REMINDER_FONT_COLOR        2  // Reminder font color, such as: "No print attached", "Busy processing", etc.
-#define VOLUME_REMINDER_FONT_COLOR 5  // Volume reminder font color, such as: "Card inserted", "Card removed"
-#define STATUS_XYZ_BG_COLOR        15 // Background color for X Y Z position display in Status Screen.
-#define LISTVIEW_BORDER_COLOR      15 // Border color in List view
-#define LISTVIEW_ICON_COLOR        15 // icon color in List view
+#define TITLE_BACKGROUND_COLOR 1     // Title background color // 0xD928
+#define BACKGROUND_COLOR 1           // Background color // 0x0A29
+#define FONT_COLOR 0                 // Font foreground color
+#define REMINDER_FONT_COLOR 2        // Reminder font color, such as: "No print attached", "Busy processing", etc.
+#define VOLUME_REMINDER_FONT_COLOR 5 // Volume reminder font color, such as: "Card inserted", "Card removed"
+#define STATUS_XYZ_BG_COLOR 15       // Background color for X Y Z position display in Status Screen.
+#define LISTVIEW_BORDER_COLOR 15     // Border color in List view
+#define LISTVIEW_ICON_COLOR 15       // icon color in List view
 
-#define HOTEND_NUM   1    // set in 1~6
+#define HOTEND_NUM 1      // set in 1~6
 #define EXTRUDER_NUM 1    // set in 1~6
-#define FAN_NUM      1    // set in 1~6
+#define FAN_NUM 1         // set in 1~6
 #define FAN_CTRL_NUM 0    // set in 1~2
 #define MIXING_EXTRUDER 0 // set default 0, for mixing_extruder 1 (this option turns off autodetection of the number of extruders)
 
-#define PREHEAT_LABELS   {"PLA", "PETG", "ABS", "WOOD", "TPU", "NYLON"}
-#define PREHEAT_HOTEND   {200,   240,    230,   170,    220,   250}
-#define PREHEAT_BED      {60,    70,     90,    50,     50,    90}
+#define PREHEAT_LABELS                           \
+  {                                              \
+    "PLA", "PETG", "ABS", "WOOD", "TPU", "NYLON" \
+  }
+#define PREHEAT_HOTEND           \
+  {                              \
+    200, 240, 230, 170, 220, 250 \
+  }
+#define PREHEAT_BED        \
+  {                        \
+    60, 70, 90, 50, 50, 90 \
+  }
 
-#define HEAT_MAX_TEMP    {275,       275,       275,       275,       275,       275,       150,    60}   //max temperature can be set
-#define HEAT_SIGN_ID     {"T0:",     "T1:",     "T2:",     "T3:",     "T4:",     "T5:",     "B:",   "C:"}
-#define HEAT_DISPLAY_ID  {"T0",      "T1",      "T2",      "T3",      "T4",      "T5",      "Bed",  "Chamber"}
-#define HEAT_CMD         {"M104 T0", "M104 T1", "M104 T2", "M104 T3", "M104 T4", "M104 T5", "M140", "M141"};
-#define HEAT_WAIT_CMD    {"M109 T0", "M109 T1", "M109 T2", "M109 T3", "M109 T4", "M109 T5", "M190", "M191"};
+#define HEAT_MAX_TEMP                     \
+  {                                       \
+    275, 275, 275, 275, 275, 275, 150, 60 \
+  } //max temperature can be set
+#define HEAT_SIGN_ID                                     \
+  {                                                      \
+    "T0:", "T1:", "T2:", "T3:", "T4:", "T5:", "B:", "C:" \
+  }
+#define HEAT_DISPLAY_ID                                  \
+  {                                                      \
+    "T0", "T1", "T2", "T3", "T4", "T5", "Bed", "Chamber" \
+  }
+#define HEAT_CMD {"M104 T0", "M104 T1", "M104 T2", "M104 T3", "M104 T4", "M104 T5", "M140", "M141"};
+#define HEAT_WAIT_CMD {"M109 T0", "M109 T1", "M109 T2", "M109 T3", "M109 T4", "M109 T5", "M190", "M191"};
 
-#define TOOL_CHANGE      {"T0",   "T1",      "T2",      "T3",      "T4",      "T5"}
-#define EXTRUDER_ID      {"E0",   "E1",      "E2",      "E3",      "E4",      "E5"}
+#define TOOL_CHANGE                    \
+  {                                    \
+    "T0", "T1", "T2", "T3", "T4", "T5" \
+  }
+#define EXTRUDER_ID                    \
+  {                                    \
+    "E0", "E1", "E2", "E3", "E4", "E5" \
+  }
 
 /**
  * Fan control
@@ -204,42 +228,48 @@
  *               2: FAN_TYPE_CTRL_I  - Controller fan idle speed  (Check Marlin gcode - M710)
  *               8: FAN_TYPE_UNKNOWN - Unknown / Not defined
  */
-#define FAN_MAX_PWM      {       255,       255,       255,       255,       255,       255,       255,       255 };
-#define FAN_DISPLAY_ID   {      "F0",      "F1",      "F2",      "F3",      "F4",      "F5",     "CtL",     "CtI" };
-#define FAN_CMD          { "M106 P0", "M106 P1", "M106 P2", "M106 P3", "M106 P4", "M106 P5",    "M710",    "M710" };
-#define FAN_TYPE         {         0,         0,         0,         0,         0,         0,         1,         2 };
+#define FAN_MAX_PWM {255, 255, 255, 255, 255, 255, 255, 255};
+#define FAN_DISPLAY_ID {"F0", "F1", "F2", "F3", "F4", "F5", "CtL", "CtI"};
+#define FAN_CMD {"M106 P0", "M106 P1", "M106 P2", "M106 P3", "M106 P4", "M106 P5", "M710", "M710"};
+#define FAN_TYPE {0, 0, 0, 0, 0, 0, 1, 2};
 
-#define SPEED_ID         {"Sp.", "Fr."}
+#define SPEED_ID \
+  {              \
+    "Sp.", "Fr." \
+  }
 
-#define AXIS_DISPLAY_ID  {"X",  "Y",  "Z",   "E",  "E2"}
+#define AXIS_DISPLAY_ID      \
+  {                          \
+    "X", "Y", "Z", "E", "E2" \
+  }
 
 // Default move speed mm/min
-#define DEFAULT_SPEED_MOVE   3000
-#define SPEED_MOVE_SLOW      1000
-#define SPEED_MOVE_FAST      5000
+#define DEFAULT_SPEED_MOVE 3000
+#define SPEED_MOVE_SLOW 1000
+#define SPEED_MOVE_FAST 5000
 
 // Extrude speed mm/min
-#define EXTRUDE_SLOW_SPEED   60
+#define EXTRUDE_SLOW_SPEED 60
 #define EXTRUDE_NORMAL_SPEED 600
-#define EXTRUDE_FAST_SPEED   1200
+#define EXTRUDE_FAST_SPEED 1200
 
 // Size of machine
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS 235
-#define Y_MAX_POS 235
-#define Z_MAX_POS 250
+#define X_MAX_POS 225
+#define Y_MAX_POS 225
+#define Z_MAX_POS 300
 
 // Specify a pause position as { X, Y, Z_raise }
-#define NOZZLE_PAUSE_RETRACT_LENGTH 15   // (mm)
-#define NOZZLE_RESUME_PURGE_LENGTH  16   // (mm)
-#define NOZZLE_PAUSE_X_POSITION     (X_MIN_POS + 10)  // (mm) Must be an integer
-#define NOZZLE_PAUSE_Y_POSITION     (Y_MIN_POS + 10)  // (mm) Must be an integer
-#define NOZZLE_PAUSE_Z_RAISE        20   // (mm)
-#define NOZZLE_PAUSE_E_FEEDRATE     6000 // (mm/min) retract & purge feedrate
-#define NOZZLE_PAUSE_XY_FEEDRATE    6000 // (mm/min) X and Y axes feedrate
-#define NOZZLE_PAUSE_Z_FEEDRATE     600  // (mm/min) Z axis feedrate
+#define NOZZLE_PAUSE_RETRACT_LENGTH 15           // (mm)
+#define NOZZLE_RESUME_PURGE_LENGTH 16            // (mm)
+#define NOZZLE_PAUSE_X_POSITION (X_MIN_POS + 10) // (mm) Must be an integer
+#define NOZZLE_PAUSE_Y_POSITION (Y_MIN_POS + 10) // (mm) Must be an integer
+#define NOZZLE_PAUSE_Z_RAISE 20                  // (mm)
+#define NOZZLE_PAUSE_E_FEEDRATE 6000             // (mm/min) retract & purge feedrate
+#define NOZZLE_PAUSE_XY_FEEDRATE 6000            // (mm/min) X and Y axes feedrate
+#define NOZZLE_PAUSE_Z_FEEDRATE 600              // (mm/min) Z axis feedrate
 
 /* M600, M601 ; pause print
  * PrusaSlicer can add M601 on certain height.
@@ -309,50 +339,50 @@
  * Manual Leveling
  * Move to four corner points to Leveling manually (Point 1, Point 2, Point 3, Point 4)
  */
-#define LEVELING_EDGE_DISTANCE        20  // Inset distance from bed's edge for calculating leveling point location.
-#define LEVELING_POINT_Z            0.2f  // Z-axis position when nozzle stays for leveling
-#define LEVELING_POINT_MOVE_Z      10.0f  // Z-axis position when nozzle move to next point
-#define LEVELING_POINT_XY_FEEDRATE  6000  // (mm/min) X and Y axes move feedrate
-#define LEVELING_POINT_Z_FEEDRATE    600  // (mm/min) Z axis move feedrate
+#define LEVELING_EDGE_DISTANCE 20       // Inset distance from bed's edge for calculating leveling point location.
+#define LEVELING_POINT_Z 0.2f           // Z-axis position when nozzle stays for leveling
+#define LEVELING_POINT_MOVE_Z 10.0f     // Z-axis position when nozzle move to next point
+#define LEVELING_POINT_XY_FEEDRATE 6000 // (mm/min) X and Y axes move feedrate
+#define LEVELING_POINT_Z_FEEDRATE 600   // (mm/min) Z axis move feedrate
 
-#define LEVELING_EDGE_DISTANCE_DISPLAY_ID   "X/Y"
-#define LEVELING_EDGE_DISTANCE_MIN          0
-#define LEVELING_EDGE_DISTANCE_MAX          100
-#define LEVELING_EDGE_DISTANCE_DEFAULT      LEVELING_EDGE_DISTANCE
+#define LEVELING_EDGE_DISTANCE_DISPLAY_ID "X/Y"
+#define LEVELING_EDGE_DISTANCE_MIN 0
+#define LEVELING_EDGE_DISTANCE_MAX 100
+#define LEVELING_EDGE_DISTANCE_DEFAULT LEVELING_EDGE_DISTANCE
 
 /**
  * Popup
  */
-#define POPUP_NOTIFICATION_DURATION 3000;                  // expressed in ms. E.g. 1500 corresponds to 1.5 seconds
+#define POPUP_NOTIFICATION_DURATION 3000; // expressed in ms. E.g. 1500 corresponds to 1.5 seconds
 
 /**
  * Z Fade
  */
-#define Z_FADE_MIN_VALUE      0.0f
-#define Z_FADE_MAX_VALUE     20.0f
+#define Z_FADE_MIN_VALUE 0.0f
+#define Z_FADE_MAX_VALUE 20.0f
 #define Z_FADE_DEFAULT_VALUE 10.0f
 
 /**
  * Probe Offset
  */
-#define PROBE_OFFSET_MIN_VALUE     -20.0f
-#define PROBE_OFFSET_MAX_VALUE      20.0f
-#define PROBE_OFFSET_DEFAULT_VALUE   0.0f
+#define PROBE_OFFSET_MIN_VALUE -20.0f
+#define PROBE_OFFSET_MAX_VALUE 20.0f
+#define PROBE_OFFSET_DEFAULT_VALUE 0.0f
 
 /**
  * Home Offset
  */
-#define HOME_Z_OFFSET_MIN_VALUE     -20.0f
-#define HOME_Z_OFFSET_MAX_VALUE      20.0f
-#define HOME_Z_OFFSET_DEFAULT_VALUE   0.0f
+#define HOME_Z_OFFSET_MIN_VALUE -20.0f
+#define HOME_Z_OFFSET_MAX_VALUE 20.0f
+#define HOME_Z_OFFSET_DEFAULT_VALUE 0.0f
 
 /**
  * Babystep
  */
-#define BABYSTEP_MIN_VALUE     -5.0f
-#define BABYSTEP_MAX_VALUE      5.0f
-#define BABYSTEP_DEFAULT_VALUE  0.0f
-#define BABYSTEP_MAX_UNIT       1.0f
+#define BABYSTEP_MIN_VALUE -5.0f
+#define BABYSTEP_MAX_VALUE 5.0f
+#define BABYSTEP_DEFAULT_VALUE 0.0f
+#define BABYSTEP_MAX_UNIT 1.0f
 
 /**
  * Mesh Editor settings
@@ -406,20 +436,20 @@
 /**
  * PID autotune
  */
-#define PID_CMD             {"M303 U1 C8 E0", "M303 U1 C8 E1", "M303 U1 C8 E2", "M303 U1 C8 E3", "M303 U1 C8 E4", "M303 U1 C8 E5", "M303 U1 C8 E-1", ""};
-#define PID_PROCESS_TIMEOUT 900000                         // expressed in ms. E.g. 900000 corresponds to 15 minutes
+#define PID_CMD {"M303 U1 C8 E0", "M303 U1 C8 E1", "M303 U1 C8 E2", "M303 U1 C8 E3", "M303 U1 C8 E4", "M303 U1 C8 E5", "M303 U1 C8 E-1", ""};
+#define PID_PROCESS_TIMEOUT 900000 // expressed in ms. E.g. 900000 corresponds to 15 minutes
 
 // LCD Encoder
 // In case LCD Encoder's sliding buttons (pin LCD_ENCA_PIN and LCD_ENCB_PIN)
 // don't produce any movement on menu, try to increase the delay (e.g. 64)
-#define LCD_ENCODER_DELAY 8                                // expressed in us. E.g. 8 corresponds to 0,000008 seconds
+#define LCD_ENCODER_DELAY 8 // expressed in us. E.g. 8 corresponds to 0,000008 seconds
 
 // Power Supply
-#define PS_ON_ACTIVE_HIGH    true   // Set 'false' for ATX (1), 'true' for X-Box (2)
+#define PS_ON_ACTIVE_HIGH true // Set 'false' for ATX (1), 'true' for X-Box (2)
 
 // Filament runout detection
-#define FIL_RUNOUT_INVERTING true  // Set to false to invert the logic of the sensor.
-#define FIL_NOISE_THRESHOLD  100   // 100ms,  Pause print when filament runout is detected for 100ms.
+#define FIL_RUNOUT_INVERTING true // Set to false to invert the logic of the sensor.
+#define FIL_NOISE_THRESHOLD 100   // 100ms,  Pause print when filament runout is detected for 100ms.
 
 // Smart filament runout detection
 // For use with an encoder disc that toggles runout pin as filament moves
@@ -439,8 +469,8 @@
  * On-Board SD Card and auto-configure M27 AutoReport with M115 command
  * Set the time interval to poll SD Printing status if Marlin reports M27 AutoReport as disabled.
  */
-#define M27_REFRESH                3        // Time in sec for M27 command
-#define M27_WATCH_OTHER_SOURCES    true     // if true the polling on M27 report is always active. Case: SD print started not from TFT35
+#define M27_REFRESH 3                // Time in sec for M27 command
+#define M27_WATCH_OTHER_SOURCES true // if true the polling on M27 report is always active. Case: SD print started not from TFT35
 
 /**
  * Power Loss Recovery
@@ -448,10 +478,10 @@
  * Most suitable for Delta printers since most printers will crash into printed model when homing after powerloss.
  */
 // Home before power loss recovery
-#define HOME_BEFORE_PLR false   //to enabled: true | to disabled: false
+#define HOME_BEFORE_PLR false //to enabled: true | to disabled: false
 
 // Backup power / UPS to move Z axis on power loss
-#define BTT_MINI_UPS    false   //to enabled: true | to disabled: false
+#define BTT_MINI_UPS false //to enabled: true | to disabled: false
 
 // (mm) Raise Z axis on resume (on power loss with UPS)
 #define POWER_LOSS_ZRAISE 10
